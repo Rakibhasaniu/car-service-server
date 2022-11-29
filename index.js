@@ -85,9 +85,24 @@ async function run() {
             res.send(result)
         })
 
-            
+            // all collection
 
-        //Advertise Car Modal information
+         app.get('/allProduct', async (req, res) => {
+            const query = {};
+            const result = await allCarCollection.find(query).toArray();
+            res.send(result)
+        })
+
+             // Booking Car Modal information
+
+        app.post('/booking', async (req, res) => {
+            const boking = req.body;
+            const result = await BookingCar.insertOne(boking);
+            res.send(result);
+        })
+
+
+        //Advertise Car Modal information 
 
 
         app.post('/advertic', async (req, res) => {
