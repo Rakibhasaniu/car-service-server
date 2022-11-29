@@ -105,11 +105,7 @@ async function run() {
         //Advertise Car Modal information
 
 
-        app.post('/advertic', async (req, res) => {
-            const boking = req.body;
-            const result = await adverticCollection.insertOne(boking);
-            res.send(result);
-        })
+       
 
 
             //Booking receive on email user 
