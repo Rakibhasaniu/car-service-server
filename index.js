@@ -147,7 +147,24 @@ async function run() {
             res.send(result);
         })
 
-       
+        // all user  information mongodb add
+
+        app.get('/users', async (req, res) => {
+            const query = {};
+            const result = await AllUser.find(query).toArray();
+            res.send(result)
+        })
+
+        // seller emaill
+
+        app.get('/users/:email', async (req, res) => {
+            const email = req.params.email;
+            // console.log(email);
+            const query = { email: email };
+            const result = await AllUser.find(query).toArray();
+            res.send(result)
+        })
+
              //Jwt token access
 
         app.get('/jwt', async (req, res) => {
