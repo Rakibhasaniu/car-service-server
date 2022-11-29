@@ -133,7 +133,19 @@ async function run() {
 
                 //get booking
 
-       
+        app.get('/bookings', async (req, res) => {
+            const query = {};
+            const result = await BookingCar.find(query).toArray();
+            res.send(result);
+        })
+
+              //Admin panel users
+
+        app.post('/users', async (req, res) => {
+            const users = req.body;
+            const result = await AllUser.insertOne(users);
+            res.send(result);
+        })
 
         // all user  information mongodb add
 
